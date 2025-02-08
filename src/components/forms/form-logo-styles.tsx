@@ -101,7 +101,7 @@ export const FormLogoStyle = () => {
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      style: "",
+      style: formLogoCtx.values.style,
     },
   });
 

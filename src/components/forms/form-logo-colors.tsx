@@ -6,12 +6,7 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { FormLogoContext } from "./context/form-logo-context";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import {
   Card,
   CardContent,
@@ -112,6 +107,7 @@ const ColorItemComp = ({
 }) => {
   return (
     <button
+      type="button"
       className={cn(
         color.itemStyle,
         isSelected ? "border-primary" : "border-background",
@@ -163,7 +159,7 @@ export const FormLogoColors = () => {
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      colors: [],
+      colors: formLogoCtx.values.colors,
     },
   });
 
@@ -217,7 +213,7 @@ export const FormLogoColors = () => {
                 className="px-5"
                 disabled={!form.formState.isValid}
               >
-                {form.getValues().colors.length === 0? "Skip":"Next"}
+                {form.getValues().colors.length === 0 ? "Skip" : "Next"}
                 <ArrowRight />
               </Button>
             </div>
