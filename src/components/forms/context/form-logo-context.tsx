@@ -6,9 +6,10 @@ export type FormLogoValues = {
   name: string;
   description: string;
   colors:string[];
+  style:string
 };
 
-export type FormLogoStateName = "name" | "description" | "colors";
+export type FormLogoStateName = "name" | "description" | "colors" | "style";
 
 export type FormLogoState = {
   name: FormLogoStateName;
@@ -21,7 +22,8 @@ export const FormLogoContext = createContext<FormLogoState>({
   values: {
     name: "",
     description: "",
-    colors:[]
+    colors:[],
+    style:"",
   },
   setState: () => {},
 });

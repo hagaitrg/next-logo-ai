@@ -169,7 +169,7 @@ export const FormLogoColors = () => {
 
   function onSubmit(values: FormSchemaType) {
     formLogoCtx.setState({
-      name: "colors",
+      name: "style",
       values: { ...formLogoCtx.values, colors: values.colors },
     });
   }
@@ -207,7 +207,7 @@ export const FormLogoColors = () => {
                 variant="outline"
                 type="button"
                 className="px-5"
-                onClick={() => formLogoCtx.setState({ name: "name" })}
+                onClick={() => formLogoCtx.setState({ name: "description" })}
               >
                 <ArrowLeft />
                 Previous
