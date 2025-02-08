@@ -17,7 +17,7 @@ export const FormLandingPage = () => {
         onChange={(e) => setName(e.target.value)}
       />
       <Button>
-        <Link href={`/create?name=${name}`}>Generate</Link>
+        <Link href={`/generate?name=${name}`}>Generate</Link>
       </Button>
     </div>
   );
