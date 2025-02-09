@@ -2,7 +2,7 @@
 
 import { UserImagesSelect } from "@/db/schema";
 import { getMyLogo } from "@/services/get-my-logo";
-import { Divide, DownloadIcon, ImagePlus } from "lucide-react";
+import { DownloadIcon, ImagePlus } from "lucide-react";
 import Image from "next/image";
 import { FormLandingPage } from "./forms/form-landing-page";
 import { Button } from "./ui/button";
@@ -14,30 +14,30 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
+import Link from "next/link";
 
 const LogoItem = ({ logo }: { logo: UserImagesSelect }) => {
+  const createdAt = new Date(logo.createdAt);
+  const formatDate = createdAt.toUTCString();
   return (
     <div className="flex flex-col place-items-center gap-2">
-      <Card className="place-items-center border-2 ">
+      <Card className="border-2">
         <CardHeader>
-          <CardTitle className="font-semibold text-lg">
-            {logo.name}
-          </CardTitle>
-          <CardDescription>
-            {logo.description}
-          </CardDescription>
+          <CardTitle className="font-semibold text-lg">{logo.name}</CardTitle>
+          <CardDescription>{formatDate}</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="place-items-center">
+          <p className="mb-3">{logo.description}</p>
           <Image
             src={logo.image}
             width={0}
             height={0}
             alt={logo.name}
-            className="size-56 rounded-lg"
+            className="size-60 rounded-lg"
           />
         </CardContent>
-        <CardFooter>
-          <Button className="mt-3" asChild>
+        <CardFooter className="grid justify-items-center">
+          <Button asChild>
             <a href={logo.image} download={`${logo.name}.png`}>
               <DownloadIcon />
               Download
@@ -70,8 +70,13 @@ export const LogoList = async () => {
     <>
       {logos.length !== 0 && (
         <>
-          <h2 className="font-bold text-3xl">Your Recent Logo</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+          <div className="flex flex-row justify-between w-full self-start">
+            <h2 className="font-bold text-3xl">Generated Logo</h2>
+            <Button>
+              <Link href="/generate">Generate Logo</Link>
+            </Button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
             {logos.map((logo) => (
               <LogoItem logo={logo} key={logo.id} />
             ))}

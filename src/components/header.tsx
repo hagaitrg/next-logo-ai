@@ -8,7 +8,7 @@ export const Header = () => {
     <header className="sticky top-0 border-b-[1px] border-foreground/20 bg-background z-30">
       <nav className="flex max-w-7xl w-full mx-auto items-center justify-between h-14 px-4">
         <Link href="/" className="text-xl font-black">
-          Logo AI
+          Logo Generator
         </Link>
         <div className="flex gap-2 items-center">
           <SignedIn>
