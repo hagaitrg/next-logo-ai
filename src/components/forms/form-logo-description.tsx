@@ -54,7 +54,7 @@ export const FormLogoDescription = () => {
           <h2>Define Your Vision</h2>
           <CardDescription className="font-semibold text-lg">
             Share your ideas and inspirations—our AI will craft the perfect logo
-            that aligns with your brand's identity.
+            that aligns with your brand&apos;s identity.
           </CardDescription>
         </CardTitle>
       </CardHeader>

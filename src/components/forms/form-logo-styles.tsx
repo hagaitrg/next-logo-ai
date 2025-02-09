@@ -118,7 +118,7 @@ export const FormLogoStyle = () => {
         <CardTitle className="font-black text-4xl">
           <h2>Choose Your Logo Style</h2>
           <CardDescription className="font-semibold text-lg">
-          Explore a variety of styles to design a logo that matches your brand's personality and vision.
+          Explore a variety of styles to design a logo that matches your brand&apos;s personality and vision.
           </CardDescription>
         </CardTitle>
       </CardHeader>

@@ -109,6 +109,7 @@ export const FormLogoResult = () => {
   }, [values]);
   useEffect(() => {
     generateLogo();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Card>
@@ -116,9 +117,7 @@ export const FormLogoResult = () => {
         {state.isLoading && <LoadingState />}
         {state.isError && (
           <ErrorState
-            onRetry={() => {
-              generateLogo;
-            }}
+            onRetry={generateLogo}
           />
         )}
         {state.imgSrc && <SuccessState imgSrc={state.imgSrc} />}
