@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { Suspense, useContext } from "react";
 import { FormLogoContext } from "./context/form-logo-context";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,15 +32,15 @@ const FormSchema = z.object({
 
 type FormSchemaType = z.infer<typeof FormSchema>;
 
-export const FormLogoName = () => {
-  const params = useSearchParams();
+export const FormLogoNameContent = () => {
+  const searchParams = useSearchParams();
   const formLogoCtx = useContext(FormLogoContext);
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: formLogoCtx.values.name
         ? formLogoCtx.values.name
-        : params.get("name") ?? "",
+        : searchParams.get("name") ?? "",
     },
   });
 
@@ -92,3 +92,11 @@ export const FormLogoName = () => {
     </Card>
   );
 };
+
+export const FormLogoName = ()=>{
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FormLogoNameContent/>
+    </Suspense>
+  )
+}
