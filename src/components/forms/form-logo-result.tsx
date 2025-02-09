@@ -38,7 +38,7 @@ export const ErrorState = ({ onRetry }: { onRetry: () => void }) => {
     <div className="flex flex-col place-items-center gap-6 py-16">
       <FileX2 className="size-32 rounded-lg" />
       <p className="font-semibold text-xl">Failed Generating Your Logo</p>
-      <Button className="font-semibold" onClick={onRetry}>
+      <Button type="button" className="font-semibold" onClick={onRetry}>
         <RotateCcw /> Retry
       </Button>
     </div>
