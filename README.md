@@ -1,5 +1,7 @@
 # 🖼️ Logo AI Generator
 
+**Live Demo** : https://next-logo-ai.vercel.app/
+
 An AI-powered logo generator built with **Next.js 15**. This app allows users to create unique logos using AI, with seamless API integration for generating high-quality SVG and PNG logos.
 
 ## 🚀 Features
