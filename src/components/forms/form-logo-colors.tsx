@@ -17,11 +17,11 @@ import {
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const formSchema = z.object({
+const FormSchema = z.object({
   colors: z.array(z.string()).max(3),
 });
 
-type FormSchemaType = z.infer<typeof formSchema>;
+type FormSchemaType = z.infer<typeof FormSchema>;
 
 type ColorItem = {
   color: string;
@@ -157,7 +157,7 @@ const ColorSelections = ({
 export const FormLogoColors = () => {
   const formLogoCtx = useContext(FormLogoContext);
   const form = useForm<FormSchemaType>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(FormSchema),
     defaultValues: {
       colors: formLogoCtx.values.colors,
     },

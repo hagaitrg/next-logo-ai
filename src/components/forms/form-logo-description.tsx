@@ -23,18 +23,18 @@ import {
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 
-const formSchema = z.object({
+const FormSchema = z.object({
   description: z
     .string({ message: "Description is Required" })
     .min(3, { message: "min. 3 character" }),
 });
 
-type FormSchemaType = z.infer<typeof formSchema>;
+type FormSchemaType = z.infer<typeof FormSchema>;
 
 export const FormLogoDescription = () => {
   const formLogoCtx = useContext(FormLogoContext);
   const form = useForm<FormSchemaType>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(FormSchema),
     defaultValues: {
       description: formLogoCtx.values.description,
     },

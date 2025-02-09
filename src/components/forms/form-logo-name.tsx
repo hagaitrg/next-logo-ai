@@ -24,19 +24,19 @@ import {
 import { ArrowRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
-const formSchema = z.object({
+const FormSchema = z.object({
   name: z
     .string({ message: "Name is Required" })
     .min(3, { message: "min. 3 character" }),
 });
 
-type FormSchemaType = z.infer<typeof formSchema>;
+type FormSchemaType = z.infer<typeof FormSchema>;
 
 export const FormLogoName = () => {
   const params = useSearchParams();
   const formLogoCtx = useContext(FormLogoContext);
   const form = useForm<FormSchemaType>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(FormSchema),
     defaultValues: {
       name: formLogoCtx.values.name
         ? formLogoCtx.values.name

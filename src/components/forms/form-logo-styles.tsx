@@ -22,11 +22,11 @@ import ImgSimpleMinimalist from "../../../public/images/simple_minimalist.png";
 import ImgAppLogo from "../../../public/images/app_logo.png";
 import Image, { StaticImageData } from "next/image";
 
-const formSchema = z.object({
+const FormSchema = z.object({
   style: z.string(),
 });
 
-type FormSchemaType = z.infer<typeof formSchema>;
+type FormSchemaType = z.infer<typeof FormSchema>;
 
 type StyleItem = {
   name: string;
@@ -99,7 +99,7 @@ const StyleSelection = ({
 export const FormLogoStyle = () => {
   const formLogoCtx = useContext(FormLogoContext);
   const form = useForm<FormSchemaType>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(FormSchema),
     defaultValues: {
       style: formLogoCtx.values.style,
     },
